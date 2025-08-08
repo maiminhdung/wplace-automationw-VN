@@ -196,7 +196,7 @@ location.reload();
 #### **"WPlace Bot không tìm thấy"**
 ```javascript
 // Tải lại bot
-fetch('[https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
+fetch('[https://raw.githubusercontent.com/maiminhdung/wplace-automationw-VN/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/maiminhdung/wplace-automationw-VN/main/wplace-bot.js').then(r=)>r.text()).then(eval)
 ```
 
 #### **Bot không hoạt động**
@@ -251,7 +251,7 @@ wplaceBot.setDelay(800);
 2. **Nhấn F12** (mở console)
 3. **Dán và thực thi:**
    ```javascript
-   fetch('[https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
+   fetch('[https://raw.githubusercontent.com/maiminhdung/wplace-automationw-VN/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/maiminhdung/wplace-automationw-VN/main/wplace-bot.js').then(r=)>r.text()).then(eval)
    ```
 4. **Chờ tin nhắn xác nhận**
 5. **Chọn một tùy chọn:**
