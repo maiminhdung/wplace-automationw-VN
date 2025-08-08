@@ -17,7 +17,7 @@ fetch('https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wpla
 ```
 
 **Chờ đến khi thấy:**
-- ✅ Tin nhắn "🎨 WPlace Bot Carregado!" (WPlace Bot đã được tải!)
+- ✅ Tin nhắn "🎨 WPlace Bot đã được khởi tạo!" (WPlace Bot đã được tải!)
 - ✅ Bảng điều khiển ở góc trên bên phải
 
 ### **Bước 3: Chọn Phương thức của bạn**
