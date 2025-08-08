@@ -1,175 +1,175 @@
-# WPlace Bot - Automação de Desenhos
+# WPlace Bot - Tự động hóa Vẽ tranh
 
-Bot para automatizar a criação de desenhos no site wplace.live.
+Bot để tự động hóa việc tạo các bức vẽ trên trang web wplace.live.
 
-## 🚀 Como Usar (Passo-a-Passo)
+## 🚀 Cách Sử dụng (Từng bước)
 
-### **Passo 1: Preparação**
-1. **Abra** [wplace.live](https://wplace.live) no navegador
-2. **Pressione** `F12` para abrir o Console (ou Ctrl+Shift+I)
-3. **Clique** na aba "Console"
+### **Bước 1: Chuẩn bị**
+1. **Mở** [wplace.live](https://wplace.live) trên trình duyệt
+2. **Nhấn** `F12` để mở Console (hoặc Ctrl+Shift+I)
+3. **Nhấp** vào tab "Console"
 
-### **Passo 2: Carregar o Bot** ⚠️ **OBRIGATÓRIO**
-**Cole este código no console e pressione Enter:**
+### **Bước 2: Tải Bot** ⚠️ **BẮT BUỘC**
+**Dán mã này vào console và nhấn Enter:**
 ```javascript
-fetch('https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+fetch('[https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
 ```
 
-**Aguarde ver:**
-- ✅ Mensagem "🎨 WPlace Bot Carregado!"
-- ✅ Painel de controle no canto superior direito
+**Chờ đến khi thấy:**
+- ✅ Tin nhắn "🎨 WPlace Bot Carregado!" (WPlace Bot đã được tải!)
+- ✅ Bảng điều khiển ở góc trên bên phải
 
-### **Passo 3: Escolha Seu Método**
+### **Bước 3: Chọn Phương thức của bạn**
 
-#### **🖼️ Opção A: Upload Direto (Mais Fácil)**
-1. Clique **"📁 Carregar Imagem"** no painel
-2. Selecione sua imagem
-3. Configure posição (X, Y)
-4. Clique **"▶️ Iniciar"**
+#### **🖼️ Lựa chọn A: Tải lên Trực tiếp (Dễ nhất)**
+1. Nhấp **"📁 Tải ảnh lên"** trên bảng điều khiển
+2. Chọn ảnh của bạn
+3. Cấu hình vị trí (X, Y)
+4. Nhấp **"▶️ Bắt đầu"**
 
-#### **🔧 Opção B: Conversor Avançado**
-1. Clique **"🔧 Conversor"** no painel
-2. Arraste sua imagem
-3. Configure opções
-4. Gere e copie o script
-5. Cole no console
+#### **🔧 Lựa chọn B: Trình chuyển đổi Nâng cao**
+1. Nhấp **"🔧 Trình chuyển đổi"** trên bảng điều khiển
+2. Kéo thả ảnh của bạn
+3. Cấu hình các tùy chọn
+4. Tạo và sao chép script
+5. Dán vào console
 
-#### **🎨 Opção C: Editor de Pixel Art**
-1. Clique **"🎨 Editor"** no painel
-2. Desenhe diretamente
-3. Copie o script gerado
-4. Cole no console
+#### **🎨 Lựa chọn C: Trình chỉnh sửa Pixel Art**
+1. Nhấp **"🎨 Trình chỉnh sửa"** trên bảng điều khiển
+2. Vẽ trực tiếp
+3. Sao chép script được tạo
+4. Dán vào console
 
-#### **❤️ Opção D: Teste Rápido**
+#### **❤️ Lựa chọn D: Thử nghiệm Nhanh**
 ```javascript
 wplaceBot.loadHeartImage();
 wplaceBot.setStartPosition(100, 100);
 wplaceBot.start();
 ```
 
-### **Controles Básicos**
+### **Điều khiển Cơ bản**
 ```javascript
-wplaceBot.start();    // Iniciar desenho
-wplaceBot.stop();     // Parar desenho
-wplaceBot.setStartPosition(x, y);  // Definir posição
-wplaceBot.setDelay(1000);          // Definir velocidade
+wplaceBot.start();    // Bắt đầu vẽ
+wplaceBot.stop();     // Dừng vẽ
+wplaceBot.setStartPosition(x, y);  // Đặt vị trí
+wplaceBot.setDelay(1000);          // Đặt tốc độ
 ```
 
-## 🎮 Como Usar o Bot
+## 🎮 Cách Sử dụng Bot
 
-### Painel de Controle
+### Bảng điều khiển
 
-O bot cria um painel de controle no canto superior direito com:
+Bot tạo ra một bảng điều khiển ở góc trên bên phải với:
 
-- **Posição X/Y**: Define onde o desenho começará
-- **Delay**: Tempo entre cada pixel (em milissegundos)
-- **Botões de imagem**: Carrega imagens pré-definidas (Coração, Smiley)
-- **Carregar Imagem**: Permite carregar suas próprias imagens (PNG, JPG, etc.)
-- **Conversor**: Abre a ferramenta de conversão avançada de imagens
-- **Iniciar/Parar**: Controla a execução do bot
+- **Vị trí X/Y**: Xác định nơi bức vẽ sẽ bắt đầu
+- **Delay**: Thời gian giữa mỗi pixel (tính bằng mili giây)
+- **Các nút ảnh**: Tải các ảnh được định sẵn (Trái tim, Mặt cười)
+- **Tải ảnh lên**: Cho phép tải lên ảnh của riêng bạn (PNG, JPG, v.v.)
+- **Trình chuyển đổi**: Mở công cụ chuyển đổi ảnh nâng cao
+- **Bắt đầu/Dừng**: Điều khiển việc thực thi của bot
 
-### 🖼️ Importando Suas Próprias Imagens
+### 🖼️ Nhập ảnh của riêng bạn
 
-#### Método 1: Upload Direto no Painel
-1. Clique em "📁 Carregar Imagem" no painel de controle
-2. Selecione sua imagem (PNG, JPG, GIF)
-3. A imagem será automaticamente redimensionada e carregada
+#### Phương pháp 1: Tải lên Trực tiếp trên Bảng điều khiển
+1. Nhấp vào "📁 Tải ảnh lên" trên bảng điều khiển
+2. Chọn ảnh của bạn (PNG, JPG, GIF)
+3. Ảnh sẽ tự động được thay đổi kích thước và tải lên
 
-#### Método 2: Conversor Avançado
-1. Clique em "🔧 Conversor" no painel ou abra `image-converter.html`
-2. Arraste sua imagem ou clique para selecionar
-3. Configure as opções:
-   - **Tamanho máximo**: Largura e altura em pixels
-   - **Modo de cor**: Paleta limitada, cores completas ou escala de cinza
-   - **Posição inicial**: Onde começar a desenhar
-   - **Delay**: Tempo entre cada pixel
-4. Clique em "🔄 Converter Imagem" para ver o preview
-5. Clique em "📝 Gerar Script" para obter o código
-6. Copie e cole o script no console do wplace.live
+#### Phương pháp 2: Trình chuyển đổi Nâng cao
+1. Nhấp vào "🔧 Trình chuyển đổi" trên bảng điều khiển hoặc mở `image-converter.html`
+2. Kéo thả ảnh của bạn hoặc nhấp để chọn
+3. Cấu hình các tùy chọn:
+   - **Kích thước tối đa**: Chiều rộng và chiều cao tính bằng pixel
+   - **Chế độ màu**: Bảng màu giới hạn, màu đầy đủ hoặc thang độ xám
+   - **Vị trí ban đầu**: Nơi bắt đầu vẽ
+   - **Delay**: Thời gian giữa mỗi pixel
+4. Nhấp vào "🔄 Chuyển đổi ảnh" để xem trước
+5. Nhấp vào "📝 Tạo Script" để lấy mã
+6. Sao chép và dán script vào console của wplace.live
 
-#### 🆕 Método 3: Editor de Pixel Art
-1. Clique em "🎨 Editor" no painel ou abra `pixel-editor.html`
-2. **Desenhe diretamente** na tela usando:
-   - **🖌️ Pincel**: Desenhar pixels individuais
-   - **🧽 Borracha**: Apagar pixels
-   - **🪣 Balde**: Preencher áreas
-   - **🎯 Conta-gotas**: Selecionar cores existentes
-   - **📏 Linha**: Desenhar linhas retas
-   - **⬜ Retângulo**: Criar formas retangulares
-3. **Configure o canvas**: Tamanho, cores, zoom
-4. **Visualize em tempo real**: Grade, estatísticas, preview
-5. **Gere o script** automaticamente conforme desenha
-6. **Exporte** em múltiplos formatos ou salve como PNG
+#### 🆕 Phương pháp 3: Trình chỉnh sửa Pixel Art
+1. Nhấp vào "🎨 Trình chỉnh sửa" trên bảng điều khiển hoặc mở `pixel-editor.html`
+2. **Vẽ trực tiếp** trên màn hình bằng cách sử dụng:
+   - **🖌️ Cọ vẽ**: Vẽ các pixel riêng lẻ
+   - **🧽 Tẩy**: Xóa các pixel
+   - **🪣 Thùng sơn**: Tô đầy các khu vực
+   - **🎯 Công cụ lấy màu**: Chọn các màu hiện có
+   - **📏 Đường kẻ**: Vẽ các đường thẳng
+   - **⬜ Hình chữ nhật**: Tạo các hình chữ nhật
+3. **Cấu hình canvas**: Kích thước, màu sắc, thu phóng
+4. **Xem trước trong thời gian thực**: Lưới, thống kê, xem trước
+5. **Tự động tạo script** khi bạn vẽ
+6. **Xuất** ra nhiều định dạng hoặc lưu dưới dạng PNG
 
-### Comandos no Console
+### Lệnh trong Console
 
 ```javascript
-// Define posição inicial (x, y)
+// Đặt vị trí ban đầu (x, y)
 wplaceBot.setStartPosition(100, 100);
 
-// Define delay entre cliques (em ms)
+// Đặt độ trễ giữa các lần nhấp (tính bằng ms)
 wplaceBot.setDelay(2000);
 
-// Carrega imagens pré-definidas
-wplaceBot.loadHeartImage();    // Coração 7x7
-wplaceBot.loadSmileyImage();   // Smiley 7x7
+// Tải các ảnh được định sẵn
+wplaceBot.loadHeartImage();    // Trái tim 7x7
+wplaceBot.loadSmileyImage();   // Mặt cười 7x7
 
-// Carrega imagem de dados personalizados
+// Tải ảnh từ dữ liệu tùy chỉnh
 const minhosPixels = [
     { x: 0, y: 0, color: '#FF0000' },
     { x: 1, y: 0, color: '#00FF00' },
-    // ... mais pixels
+    // ... thêm nhiều pixel khác
 ];
-wplaceBot.loadImageFromData(minhosPixels, 'Minha Imagem');
+wplaceBot.loadImageFromData(minhosPixels, 'Ảnh của tôi');
 
-// Carrega imagem de URL (data URL ou URL externa)
+// Tải ảnh từ URL (data URL hoặc URL bên ngoài)
 wplaceBot.loadImageFromUrl('data:image/png;base64,...', 50, 50);
 
-// Controla o bot
-wplaceBot.start();  // Inicia
-wplaceBot.stop();   // Para
+// Điều khiển bot
+wplaceBot.start();  // Bắt đầu
+wplaceBot.stop();   // Dừng
 ```
 
-## 🎨 Imagens Disponíveis
+## 🎨 Các ảnh có sẵn
 
-### Imagens Pré-definidas
+### Ảnh được định sẵn
 
-- **❤️ Coração**: 7x7 pixels em vermelho
-- **😊 Smiley**: 7x7 pixels amarelo com rosto sorridente
+- **❤️ Trái tim**: 7x7 pixel màu đỏ
+- **😊 Mặt cười**: 7x7 pixel màu vàng với khuôn mặt cười
 
-### 🆕 Suas Próprias Imagens
+### 🆕 Ảnh của riêng bạn
 
-Agora você pode importar qualquer imagem! O bot suporta:
+Bây giờ bạn có thể nhập bất kỳ ảnh nào! Bot hỗ trợ:
 
-- **Formatos**: PNG, JPG, JPEG, GIF
-- **Redimensionamento automático**: Suas imagens são redimensionadas para o tamanho ideal
-- **Otimização de cores**: Converte para as cores disponíveis no wplace.live
-- **Três modos de cor**:
-  - **Paleta Limitada**: Usa apenas cores comuns do wplace
-  - **Cores Completas**: Mantém cores originais (pode não ter correspondência exata)
-  - **Escala de Cinza**: Converte para preto e branco
+- **Định dạng**: PNG, JPG, JPEG, GIF
+- **Tự động thay đổi kích thước**: Ảnh của bạn được thay đổi kích thước để phù hợp nhất
+- **Tối ưu hóa màu sắc**: Chuyển đổi sang các màu có sẵn trên wplace.live
+- **Ba chế độ màu**:
+  - **Bảng màu giới hạn**: Chỉ sử dụng các màu phổ biến của wplace
+  - **Màu đầy đủ**: Giữ lại màu gốc (có thể không khớp chính xác)
+  - **Thang độ xám**: Chuyển đổi sang đen trắng
 
-### Como Converter Suas Imagens
+### Cách chuyển đổi ảnh của bạn
 
-1. **Abra o Conversor**: Use `image-converter.html` ou clique no botão "🔧 Conversor" no painel
-2. **Importe sua Imagem**: Arraste ou selecione o arquivo
-3. **Configure as Opções**:
-   - Tamanho máximo (recomendado: 50x50 para imagens pequenas)
-   - Modo de cor (recomendado: Paleta Limitada)
-   - Posição inicial no canvas
-   - Delay entre pixels
-4. **Visualize o Resultado**: Veja como ficará sua imagem pixelizada
-5. **Gere o Script**: Obtenha o código pronto para usar
-6. **Use no WPlace**: Cole o script no console do wplace.live
+1. **Mở Trình chuyển đổi**: Sử dụng `image-converter.html` hoặc nhấp vào nút "🔧 Trình chuyển đổi" trên bảng điều khiển
+2. **Nhập ảnh của bạn**: Kéo thả hoặc chọn tệp
+3. **Cấu hình các tùy chọn**:
+   - Kích thước tối đa (khuyến nghị: 50x50 cho ảnh nhỏ)
+   - Chế độ màu (khuyến nghị: Bảng màu giới hạn)
+   - Vị trí ban đầu trên canvas
+   - Delay giữa các pixel
+4. **Xem trước kết quả**: Xem ảnh của bạn sẽ trông như thế nào sau khi được pixel hóa
+5. **Tạo Script**: Lấy mã sẵn sàng để sử dụng
+6. **Sử dụng trên WPlace**: Dán script vào console của wplace.live
 
-### ⚠️ Dicas Importantes
+### ⚠️ Mẹo quan trọng
 
-- **Tamanho**: Imagens muito grandes demoram muito para desenhar
-- **Delay**: Use pelo menos 1000ms entre pixels para evitar sobrecarga
-- **Cores**: Modo "Paleta Limitada" garante melhor compatibilidade
-- **Posição**: Verifique se há espaço suficiente no canvas antes de iniciar
+- **Kích thước**: Ảnh quá lớn sẽ mất nhiều thời gian để vẽ
+- **Delay**: Sử dụng ít nhất 1000ms giữa các pixel để tránh quá tải
+- **Màu sắc**: Chế độ "Bảng màu giới hạn" đảm bảo khả năng tương thích tốt nhất
+- **Vị trí**: Kiểm tra xem có đủ không gian trên canvas trước khi bắt đầu không
 
-### Coração (7x7)
+### Trái tim (7x7)
 ```
 ⬜🟥🟥⬜🟥🟥⬜
 🟥🟥🟥🟥🟥🟥🟥
@@ -180,7 +180,7 @@ Agora você pode importar qualquer imagem! O bot suporta:
 ⬜⬜⬜🟥⬜⬜⬜
 ```
 
-### Smiley (7x7)
+### Mặt cười (7x7)
 ```
 ⬜⬜🟨🟨🟨⬜⬜
 ⬜🟨🟨🟨🟨🟨⬜
@@ -191,23 +191,23 @@ Agora você pode importar qualquer imagem! O bot suporta:
 ⬜⬜🟨🟨🟨⬜⬜
 ```
 
-## 🔧 Criando Suas Próprias Imagens
+## 🔧 Tạo ảnh của riêng bạn
 
-### Método Simples
+### Phương pháp Đơn giản
 
 ```javascript
-// Crie uma matriz de cores (7x7 exemplo)
+// Tạo một mảng màu (ví dụ 7x7)
 const minhaImagem = [
     '#FF0000', '#FF0000', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FF0000', '#FF0000',
     '#FF0000', '#FFFFFF', '#FF0000', '#FFFFFF', '#FF0000', '#FFFFFF', '#FF0000',
-    // ... continue para 49 pixels (7x7)
+    // ... tiếp tục cho 49 pixel (7x7)
 ];
 
-// Carregue a imagem
+// Tải ảnh
 wplaceBot.loadSimpleImage(minhaImagem, 7, 7);
 ```
 
-### Método com Emojis
+### Phương pháp với Emoji
 
 ```javascript
 const design = [
@@ -225,111 +225,111 @@ const imageData = design.map(emoji => colorMap[emoji]);
 wplaceBot.loadSimpleImage(imageData, 3, 3);
 ```
 
-## ⚠️ Avisos Importantes
+## ⚠️ Cảnh báo Quan trọng
 
-1. **Use com responsabilidade**: Respeite a comunidade do wplace.live
-2. **Delays adequados**: Use delays de pelo menos 1000ms para não sobrecarregar o servidor
-3. **Tamanho das imagens**: Comece com imagens pequenas (máximo 10x10)
-4. **Coordenadas**: Verifique se suas coordenadas não vão além dos limites do canvas
+1. **Sử dụng có trách nhiệm**: Tôn trọng cộng đồng wplace.live
+2. **Delay phù hợp**: Sử dụng delay ít nhất 1000ms để không làm quá tải máy chủ
+3. **Kích thước ảnh**: Bắt đầu với ảnh nhỏ (tối đa 10x10)
+4. **Tọa độ**: Kiểm tra xem tọa độ của bạn có vượt ra ngoài giới hạn của canvas không
 
-## 🛠️ Recursos do Bot
+## 🛠️ Các tính năng của Bot
 
-- ✅ Interface gráfica integrada
-- ✅ Detecção automática do canvas
-- ✅ Detecção automática da paleta de cores
-- ✅ Seleção automática da cor mais próxima
-- ✅ Controle de velocidade (delay)
-- ✅ Imagens pré-definidas
-- ✅ Sistema de parada de emergência
-- ✅ Log detalhado das ações
+- ✅ Giao diện đồ họa tích hợp
+- ✅ Tự động phát hiện canvas
+- ✅ Tự động phát hiện bảng màu
+- ✅ Tự động chọn màu gần nhất
+- ✅ Kiểm soát tốc độ (delay)
+- ✅ Các ảnh được định sẵn
+- ✅ Hệ thống dừng khẩn cấp
+- ✅ Ghi lại chi tiết các hành động
 
-## 🐛 Solução de Problemas
+## 🐛 Giải quyết sự cố
 
-### "Canvas não encontrado"
-- Certifique-se de estar no site wplace.live
-- Aguarde o site carregar completamente
-- Recarregue a página e tente novamente
+### "Canvas không tìm thấy"
+- Đảm bảo bạn đang ở trên trang web wplace.live
+- Chờ trang web tải hoàn toàn
+- Tải lại trang và thử lại
 
-### "Cores não selecionadas"
-- O site pode ter mudado a estrutura da paleta de cores
-- Tente selecionar as cores manualmente primeiro
+### "Màu không được chọn"
+- Trang web có thể đã thay đổi cấu trúc của bảng màu
+- Thử chọn màu thủ công trước
 
-### Bot não funciona
-- Verifique se não há bloqueadores de script
-- Tente recarregar o script
-- Verifique o console para erros
+### Bot không hoạt động
+- Kiểm tra xem có trình chặn script nào không
+- Thử tải lại script
+- Kiểm tra console để tìm lỗi
 
-## 📝 Licença
+## 📝 Giấy phép
 
-Este script é fornecido "como está" para fins educacionais. Use por sua própria conta e risco.
+Script này được cung cấp "nguyên trạng" cho mục đích giáo dục. Sử dụng với rủi ro của riêng bạn.
 
-## 📁 Arquivos do Projeto
+## 📁 Các tệp của Dự án
 
-- `wplace-bot.js` - Script principal do bot com todas as funcionalidades
-- `wplace-bot-minified.js` - Versão minificada do bot
-- `image-converter.html` - **🔧 Conversor web de imagens** (Interface completa)
-- `pixel-editor.html` - **🆕 Editor de Pixel Art** (Desenhe diretamente na tela!)
-- `demo-converter.html` - Página de demonstração e instruções
-- `custom-images.md` - Exemplos e guia para imagens personalizadas
-- `README.md` - Este arquivo com todas as instruções
+- `wplace-bot.js` - Script chính của bot với tất cả các chức năng
+- `wplace-bot-minified.js` - Phiên bản thu gọn của bot
+- `image-converter.html` - **🔧 Trình chuyển đổi ảnh web** (Giao diện đầy đủ)
+- `pixel-editor.html` - **🆕 Trình chỉnh sửa Pixel Art** (Vẽ trực tiếp trên màn hình!)
+- `demo-converter.html` - Trang demo và hướng dẫn
+- `custom-images.md` - Ví dụ và hướng dẫn cho ảnh tùy chỉnh
+- `README.md` - Tệp này với tất cả các hướng dẫn
 
-## 🆕 Novidades - Editor de Pixel Art
+## 🆕 Tính năng mới - Trình chỉnh sửa Pixel Art
 
-### 🎨 Editor Completo de Pixel Art
-O arquivo `pixel-editor.html` é um editor completo onde você pode **desenhar diretamente**:
+### 🎨 Trình chỉnh sửa Pixel Art Đầy đủ
+Tệp `pixel-editor.html` là một trình chỉnh sửa hoàn chỉnh nơi bạn có thể **vẽ trực tiếp**:
 
-#### **🛠️ Ferramentas Disponíveis**:
-- **�️ Pincel**: Desenhar pixel por pixel
-- **🧽 Borracha**: Apagar pixels específicos
-- **🪣 Balde**: Preencher áreas com uma cor
-- **🎯 Conta-gotas**: Selecionar cores existentes no desenho
-- **📏 Linha**: Desenhar linhas retas perfeitas
-- **⬜ Retângulo**: Criar formas retangulares
+#### **🛠️ Công cụ có sẵn**:
+- **🖌️ Cọ vẽ**: Vẽ từng pixel
+- **🧽 Tẩy**: Xóa các pixel cụ thể
+- **🪣 Thùng sơn**: Tô đầy các khu vực bằng một màu
+- **🎯 Công cụ lấy màu**: Chọn các màu hiện có trong bức vẽ
+- **📏 Đường kẻ**: Vẽ các đường thẳng hoàn hảo
+- **⬜ Hình chữ nhật**: Tạo các hình chữ nhật
 
-#### **🎨 Sistema de Cores**:
-- **Paleta de 30 cores** otimizada para wplace.live
-- **Seletor de cor personalizado** para cores específicas
-- **Preview em tempo real** de todas as cores
+#### **🎨 Hệ thống Màu sắc**:
+- **Bảng màu 30 màu** được tối ưu hóa cho wplace.live
+- **Công cụ chọn màu tùy chỉnh** cho các màu cụ thể
+- **Xem trước thời gian thực** của tất cả các màu
 
-#### **📐 Controles de Canvas**:
-- **Tamanho configurável**: De 5x5 até 100x100 pixels
-- **Zoom ajustável**: 1x até 5x para precisão
-- **Grade opcional**: Para melhor visualização
-- **Histórico completo**: Desfazer/Refazer ilimitado
+#### **📐 Điều khiển Canvas**:
+- **Kích thước có thể cấu hình**: Từ 5x5 đến 100x100 pixel
+- **Thu phóng có thể điều chỉnh**: Từ 1x đến 5x để có độ chính xác
+- **Lưới tùy chọn**: Để xem tốt hơn
+- **Lịch sử hoàn chỉnh**: Hoàn tác/Làm lại không giới hạn
 
-#### **📊 Recursos Avançados**:
-- **Importação de imagens**: Arraste imagens existentes
-- **Exportação PNG**: Salve seu trabalho em alta resolução
-- **Estatísticas em tempo real**: Pixels, cores, tempo estimado
-- **Múltiplos formatos de script**: Script completo, função ou dados puros
+#### **📊 Các tính năng Nâng cao**:
+- **Nhập ảnh**: Kéo thả các ảnh hiện có
+- **Xuất PNG**: Lưu tác phẩm của bạn ở độ phân giải cao
+- **Thống kê thời gian thực**: Số pixel, màu sắc, thời gian ước tính
+- **Nhiều định dạng script**: Script đầy đủ, hàm hoặc dữ liệu thô
 
-#### **⚡ Geração Automática**:
-- **Script gerado em tempo real** conforme você desenha
-- **Três formatos de saída**:
-  - Script completo pronto para usar
-  - Função personalizada
-  - Dados puros da imagem
-- **Cópia com um clique** para área de transferência
+#### **⚡ Tạo tự động**:
+- **Script được tạo trong thời gian thực** khi bạn vẽ
+- **Ba định dạng đầu ra**:
+  - Script đầy đủ sẵn sàng để sử dụng
+  - Hàm tùy chỉnh
+  - Dữ liệu thô của ảnh
+- **Sao chép bằng một cú nhấp chuột** vào clipboard
 
 ---
 
-**🎉 Agora você tem 3 formas diferentes de criar arte para o wplace.live:**
+**🎉 Bây giờ bạn có 3 cách khác nhau để tạo vẽ lên wplace.live:**
 
-### 1. 📁 **Upload Direto** - *Rápido e Simples*
-- Clique em "📁 Carregar Imagem" no painel
-- Selecione qualquer imagem
-- Pronto para usar!
+### 1. 📁 **Tải lên Trực tiếp** - *Nhanh và Đơn giản*
+- Nhấp vào "📁 Tải ảnh lên" trên bảng điều khiển
+- Chọn bất kỳ ảnh nào
+- Sẵn sàng để sử dụng!
 
-### 2. 🔧 **Conversor Avançado** - *Máximo Controle*
-- Importe qualquer formato de imagem
-- Configure tamanho, cores e otimizações
-- Preview completo antes de gerar
-- Múltiplos formatos de saída
+### 2. 🔧 **Trình chuyển đổi Nâng cao** - *Nâng cao*
+- Nhập bất kỳ định dạng ảnh nào
+- Cấu hình kích thước, màu sắc và tối ưu hóa
+- Xem trước đầy đủ trước khi tạo
+- Nhiều định dạng đầu ra
 
-### 3. 🎨 **Editor de Pixel Art** - *Criação Original*
-- Desenhe diretamente na tela
-- Ferramentas profissionais (pincel, balde, linha, etc.)
-- Geração de script em tempo real
-- Sistema completo de cores e zoom
+### 3. 🎨 **Trình chỉnh sửa Pixel Art** - *Tự sáng tạo*
+- Vẽ trực tiếp trên màn hình
+- Các công cụ chuyên nghiệp (cọ vẽ, thùng sơn, đường kẻ, v.v.)
+- Tạo script trong thời gian thực
+- Hệ thống màu sắc và thu phóng hoàn chỉnh
 
-**✨ Todos os métodos geram scripts prontos para colar no console do wplace.live!**
+**✨ Tất cả các phương pháp đều tạo ra các script sẵn sàng để dán vào console của wplace.live!**

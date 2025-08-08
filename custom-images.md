@@ -1,26 +1,26 @@
-# 🖼️ Exemplos de Imagens Personalizadas
+# 🖼️ Ví dụ về Ảnh Tùy chỉnh
 
-Este arquivo contém exemplos de como usar imagens convertidas no WPlace Bot, além de métodos para criar suas próprias imagens.
+Tệp này chứa các ví dụ về cách sử dụng ảnh đã chuyển đổi trong WPlace Bot, cùng với các phương pháp để tạo ảnh của riêng bạn.
 
-## 🎨 Métodos para Criar Imagens
+## 🎨 Các phương pháp để Tạo ảnh
 
-### 1. 🆕 Conversor Web Automático (Recomendado)
-- Abra `image-converter.html` no navegador
-- Arraste ou selecione sua imagem (PNG, JPG, GIF)
-- Configure tamanho máximo e modo de cor
-- Visualize o resultado em tempo real
-- Gere o script pronto para usar
-- Copie e cole no console do wplace.live
+### 1. 🆕 Trình chuyển đổi Web Tự động (Khuyến nghị)
+- Mở `image-converter.html` trong trình duyệt
+- Kéo thả hoặc chọn ảnh của bạn (PNG, JPG, GIF)
+- Cấu hình kích thước tối đa và chế độ màu
+- Xem trước kết quả trong thời gian thực
+- Tạo script sẵn sàng để sử dụng
+- Sao chép và dán vào console của wplace.live
 
-### 2. 📁 Upload Direto no Painel
-- Use o botão "📁 Carregar Imagem" no painel do bot
-- Selecione sua imagem
-- Será automaticamente redimensionada e carregada
+### 2. 📁 Tải lên Trực tiếp trên Bảng điều khiển
+- Sử dụng nút "📁 Tải ảnh lên" trên bảng điều khiển của bot
+- Chọn ảnh của bạn
+- Ảnh sẽ được tự động thay đổi kích thước và tải lên
 
-### 3. Método Manual (Para Pixel Art Simples)
+### 3. Phương pháp Thủ công (Cho Pixel Art Đơn giản)
 
 ```javascript
-// Exemplo: Cruz 5x5
+// Ví dụ: Chữ thập 5x5
 const cruz = [
     '#FFFFFF', '#FFFFFF', '#FF0000', '#FFFFFF', '#FFFFFF',
     '#FFFFFF', '#FFFFFF', '#FF0000', '#FFFFFF', '#FFFFFF', 
@@ -32,10 +32,10 @@ const cruz = [
 wplaceBot.loadSimpleImage(cruz, 5, 5);
 ```
 
-### 2. Método com Emojis (Visual)
+### 2. Phương pháp với Emoji (Trực quan)
 
 ```javascript
-// Exemplo: Quadrado com X
+// Ví dụ: Hình vuông với chữ X
 const design = [
     '🟥', '⬜', '⬜', '⬜', '🟥',
     '⬜', '🟥', '⬜', '🟥', '⬜',
@@ -53,10 +53,10 @@ const imageData = design.map(emoji => colorMap[emoji]);
 wplaceBot.loadSimpleImage(imageData, 5, 5);
 ```
 
-### 3. Método com String Multi-linha
+### 3. Phương pháp với Chuỗi nhiều dòng
 
 ```javascript
-// Exemplo: Seta para cima
+// Ví dụ: Mũi tên lên
 const arrow = `
 ⬜⬜🟦⬜⬜
 ⬜🟦🟦🟦⬜
@@ -74,9 +74,9 @@ const pixels = Array.from(arrow).map(char => colors[char] || '#FFFFFF');
 wplaceBot.loadSimpleImage(pixels, 5, 5);
 ```
 
-## 🔧 Ferramentas Auxiliares
+## 🔧 Các công cụ Hỗ trợ
 
-### Função para Criar Retângulo
+### Hàm để Tạo Hình chữ nhật
 
 ```javascript
 function createRectangle(width, height, color, borderColor = null) {
@@ -84,7 +84,7 @@ function createRectangle(width, height, color, borderColor = null) {
     
     for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
-            // Se tem borda e está na borda
+            // Nếu có viền và đang ở trên viền
             if (borderColor && (x === 0 || x === width-1 || y === 0 || y === height-1)) {
                 pixels.push(borderColor);
             } else {
@@ -96,12 +96,12 @@ function createRectangle(width, height, color, borderColor = null) {
     return pixels;
 }
 
-// Uso:
+// Sử dụng:
 const rect = createRectangle(8, 6, '#FF0000', '#000000');
 wplaceBot.loadSimpleImage(rect, 8, 6);
 ```
 
-### Função para Criar Círculo
+### Hàm để Tạo Hình tròn
 
 ```javascript
 function createCircle(radius, fillColor, bgColor = '#FFFFFF') {
@@ -119,16 +119,16 @@ function createCircle(radius, fillColor, bgColor = '#FFFFFF') {
     return pixels;
 }
 
-// Uso:
+// Sử dụng:
 const circle = createCircle(4, '#00FF00');
 wplaceBot.loadSimpleImage(circle, 9, 9);
 ```
 
-### Função para Texto Simples
+### Hàm để Tạo Văn bản Đơn giản
 
 ```javascript
 function createText(text, color = '#000000', bgColor = '#FFFFFF') {
-    // Fonte 3x5 simples
+    // Phông chữ 3x5 đơn giản
     const font = {
         'A': [
             '⬜🟦⬜',
@@ -151,7 +151,7 @@ function createText(text, color = '#000000', bgColor = '#FFFFFF') {
             '🟦⬜⬜',
             '⬜🟦🟦'
         ]
-        // Adicione mais letras conforme necessário
+        // Thêm các chữ cái khác nếu cần
     };
     
     const letters = text.toUpperCase().split('');
@@ -165,23 +165,23 @@ function createText(text, color = '#000000', bgColor = '#FFFFFF') {
                     pixels.push(char === '🟦' ? color : bgColor);
                 }
             }
-            // Espaço entre letras
+            // Khoảng cách giữa các chữ cái
             pixels.push(bgColor);
         }
     }
     
-    const width = letters.length * 4 - 1; // 3 + 1 espaço, menos último espaço
+    const width = letters.length * 4 - 1; // 3 + 1 khoảng cách, trừ khoảng cách cuối cùng
     return { pixels, width, height: 5 };
 }
 
-// Uso:
+// Sử dụng:
 const textData = createText('ABC', '#FF0000');
 wplaceBot.loadSimpleImage(textData.pixels, textData.width, textData.height);
 ```
 
-## 🎯 Exemplos Prontos
+## 🎯 Ví dụ Sẵn có
 
-### Pokébola (8x8)
+### Pokéball (8x8)
 
 ```javascript
 const pokeball = [
@@ -205,7 +205,7 @@ const pokeData = pokeball.map(emoji => pokeColors[emoji]);
 wplaceBot.loadSimpleImage(pokeData, 8, 8);
 ```
 
-### Bandeira do Brasil (9x6)
+### Cờ Brazil (9x6)
 
 ```javascript
 const brasilFlag = [
@@ -249,13 +249,13 @@ const pacData = pacman.map(emoji => pacColors[emoji]);
 wplaceBot.loadSimpleImage(pacData, 7, 7);
 ```
 
-## 🛠️ Dicas Avançadas
+## 🛠️ Mẹo Nâng cao
 
-### 1. Converter Imagem Real para Pixel Art
+### 1. Chuyển đổi Ảnh Thật sang Pixel Art
 
 ```javascript
-// Use esta função para converter uma imagem para array de cores
-// (precisa carregar a imagem em um canvas primeiro)
+// Sử dụng hàm này để chuyển đổi một ảnh thành mảng màu
+// (cần tải ảnh vào một canvas trước)
 function imageToPixelArray(canvas, width, height) {
     const ctx = canvas.getContext('2d');
     const imageData = ctx.getImageData(0, 0, width, height);
@@ -274,80 +274,80 @@ function imageToPixelArray(canvas, width, height) {
 }
 ```
 
-### 2. Paleta de Cores Comum
+### 2. Bảng màu Phổ biến
 
 ```javascript
 const commonColors = {
-    'preto': '#000000',
-    'branco': '#FFFFFF',
-    'vermelho': '#FF0000',
-    'verde': '#00FF00',
-    'azul': '#0000FF',
-    'amarelo': '#FFFF00',
-    'magenta': '#FF00FF',
-    'ciano': '#00FFFF',
-    'laranja': '#FFA500',
-    'roxo': '#800080',
-    'rosa': '#FFC0CB',
-    'cinza': '#808080',
-    'marrom': '#8B4513',
-    'lime': '#32CD32',
-    'navy': '#000080'
+    'đen': '#000000',
+    'trắng': '#FFFFFF',
+    'đỏ': '#FF0000',
+    'xanh lá': '#00FF00',
+    'xanh dương': '#0000FF',
+    'vàng': '#FFFF00',
+    'hồng đậm': '#FF00FF',
+    'xanh lơ': '#00FFFF',
+    'cam': '#FFA500',
+    'tím': '#800080',
+    'hồng': '#FFC0CB',
+    'xám': '#808080',
+    'nâu': '#8B4513',
+    'xanh chanh': '#32CD32',
+    'xanh hải quân': '#000080'
 };
 ```
 
-### 3. Validar Imagem Antes de Usar
+### 3. Xác thực Ảnh Trước khi Sử dụng
 
 ```javascript
 function validateImage(pixels, width, height) {
     if (pixels.length !== width * height) {
-        console.error(`❌ Erro: esperado ${width * height} pixels, encontrado ${pixels.length}`);
+        console.error(`❌ Lỗi: dự kiến ${width * height} pixel, tìm thấy ${pixels.length}`);
         return false;
     }
     
-    // Verificar se todas as cores são válidas
+    // Kiểm tra xem tất cả các màu có hợp lệ không
     const invalidColors = pixels.filter(color => !/^#[0-9A-F]{6}$/i.test(color));
     if (invalidColors.length > 0) {
-        console.error(`❌ Cores inválidas encontradas:`, invalidColors);
+        console.error(`❌ Tìm thấy màu không hợp lệ:`, invalidColors);
         return false;
     }
     
-    console.log(`✅ Imagem válida: ${width}x${height}`);
+    console.log(`✅ Ảnh hợp lệ: ${width}x${height}`);
     return true;
 }
 
-// Uso:
+// Sử dụng:
 if (validateImage(meuPixels, 8, 8)) {
     wplaceBot.loadSimpleImage(meuPixels, 8, 8);
 }
 ```
 
-## 📝 Template Base
+## 📝 Mẫu Cơ bản
 
 ```javascript
-// Template para criar suas próprias imagens
+// Mẫu để tạo ảnh của riêng bạn
 function createCustomImage() {
-    // 1. Defina seu design (use emojis para visualizar melhor)
+    // 1. Xác định thiết kế của bạn (sử dụng emoji để xem tốt hơn)
     const design = [
         '⬜', '⬜', '⬜',
         '⬜', '🟦', '⬜',
         '⬜', '⬜', '⬜'
     ];
     
-    // 2. Mapeie as cores
+    // 2. Ánh xạ các màu
     const colorMap = {
         '⬜': '#FFFFFF',
         '🟦': '#0000FF'
     };
     
-    // 3. Converta para array de cores
+    // 3. Chuyển đổi sang mảng màu
     const pixels = design.map(emoji => colorMap[emoji] || '#FFFFFF');
     
-    // 4. Defina dimensões
+    // 4. Xác định kích thước
     const width = 3;
     const height = 3;
     
-    // 5. Valide e carregue
+    // 5. Xác thực và tải
     if (validateImage(pixels, width, height)) {
         wplaceBot.loadSimpleImage(pixels, width, height);
         return true;
@@ -356,6 +356,6 @@ function createCustomImage() {
     return false;
 }
 
-// Use a função
+// Sử dụng hàm
 createCustomImage();
 ```

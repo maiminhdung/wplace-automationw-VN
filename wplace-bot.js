@@ -1,17 +1,17 @@
 /**
- * Bot para automatizar desenhos no wplace.live
- * Instruções:
- * 1. Abra o site wplace.live no navegador
- * 2. Abra o Console do desenvolvedor (F12 > Console)
- * 3. Cole este script e pressione Enter
- * 4. Configure sua imagem e posição inicial
- * 5. Execute o bot
+ * Bot để tự động hóa việc vẽ tranh trên wplace.live
+ * Hướng dẫn:
+ * 1. Mở trang web wplace.live trên trình duyệt
+ * 2. Mở Console của nhà phát triển (F12 > Console)
+ * 3. Dán script này vào và nhấn Enter
+ * 4. Cấu hình ảnh và vị trí bắt đầu của bạn
+ * 5. Chạy bot
  */
 
 class WPlaceBot {
     constructor() {
         this.isRunning = false;
-        this.delay = 1000; // Delay entre cliques em ms
+        this.delay = 1000; // Độ trễ giữa các lần nhấp tính bằng ms
         this.currentPixel = 0;
         this.pixels = [];
         this.startX = 0;
@@ -21,17 +21,17 @@ class WPlaceBot {
         this.selectedColor = '#000000';
     }
 
-    // Inicializa o bot
+    // Khởi tạo bot
     init() {
-        console.log('🎨 WPlace Bot inicializado!');
+        console.log('🎨 WPlace Bot đã được khởi tạo!');
         this.findCanvas();
         this.findColorPalette();
         this.createControlPanel();
     }
 
-    // Encontra o canvas do wplace
+    // Tìm canvas của wplace
     findCanvas() {
-        // Procura por diferentes possíveis seletores do canvas
+        // Tìm kiếm các bộ chọn có thể của canvas
         const possibleSelectors = [
             'canvas',
             '#canvas',
@@ -45,17 +45,17 @@ class WPlaceBot {
             const element = document.querySelector(selector);
             if (element) {
                 this.canvas = element;
-                console.log('✅ Canvas encontrado:', selector);
+                console.log('✅ Đã tìm thấy Canvas:', selector);
                 return;
             }
         }
 
-        console.error('❌ Canvas não encontrado. Certifique-se de estar no wplace.live');
+        console.error('❌ Không tìm thấy Canvas. Hãy chắc chắn rằng bạn đang ở trên wplace.live');
     }
 
-    // Encontra a paleta de cores
+    // Tìm bảng màu
     findColorPalette() {
-        // Procura por elementos que podem ser cores
+        // Tìm kiếm các phần tử có thể là màu
         const colorElements = document.querySelectorAll('[style*="background-color"], .color, [data-color], .palette-color');
         
         colorElements.forEach(element => {
@@ -68,10 +68,10 @@ class WPlaceBot {
             }
         });
 
-        console.log(`✅ Encontradas ${this.colorPalette.length} cores na paleta`);
+        console.log(`✅ Đã tìm thấy ${this.colorPalette.length} màu trong bảng màu`);
     }
 
-    // Converte cor RGB para HEX
+    // Chuyển đổi màu RGB sang HEX
     rgbToHex(rgb) {
         const result = rgb.match(/\d+/g);
         if (!result) return '#000000';
@@ -80,14 +80,14 @@ class WPlaceBot {
         return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     }
 
-    // Encontra a cor mais próxima na paleta
+    // Tìm màu gần nhất trong bảng màu
     findClosestColor(targetColor) {
         if (this.colorPalette.length === 0) return null;
 
         let closestColor = this.colorPalette[0];
         let minDistance = Infinity;
 
-        // Converte cor alvo para RGB
+        // Chuyển đổi màu mục tiêu sang RGB
         const target = this.hexToRgb(targetColor);
         if (!target) return closestColor;
 
@@ -110,7 +110,7 @@ class WPlaceBot {
         return closestColor;
     }
 
-    // Converte HEX para RGB
+    // Chuyển đổi HEX sang RGB
     hexToRgb(hex) {
         const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
         return result ? {
@@ -120,7 +120,7 @@ class WPlaceBot {
         } : null;
     }
 
-    // Converte string RGB para objeto
+    // Chuyển đổi chuỗi RGB sang đối tượng
     rgbStringToObject(rgb) {
         const result = rgb.match(/\d+/g);
         if (!result || result.length < 3) return null;
@@ -132,19 +132,19 @@ class WPlaceBot {
         };
     }
 
-    // Seleciona uma cor na paleta
+    // Chọn một màu trong bảng màu
     selectColor(color) {
         const closestColor = this.findClosestColor(color);
         if (closestColor && closestColor.element) {
             closestColor.element.click();
             this.selectedColor = color;
-            console.log(`🎨 Cor selecionada: ${color}`);
+            console.log(`🎨 Đã chọn màu: ${color}`);
             return true;
         }
         return false;
     }
 
-    // Clica em uma posição específica do canvas
+    // Nhấp vào một vị trí cụ thể trên canvas
     clickCanvas(x, y) {
         if (!this.canvas) return false;
 
@@ -152,7 +152,7 @@ class WPlaceBot {
         const canvasX = x + rect.left;
         const canvasY = y + rect.top;
 
-        // Cria eventos de mouse
+        // Tạo các sự kiện chuột
         const events = ['mousedown', 'mouseup', 'click'];
         
         events.forEach(eventType => {
@@ -166,11 +166,11 @@ class WPlaceBot {
             this.canvas.dispatchEvent(event);
         });
 
-        console.log(`🖱️ Clicado em (${x}, ${y})`);
+        console.log(`🖱️ Đã nhấp vào (${x}, ${y})`);
         return true;
     }
 
-    // Carrega uma imagem simples (matriz de cores)
+    // Tải một ảnh đơn giản (mảng màu)
     loadSimpleImage(imageData, width, height) {
         this.pixels = [];
         
@@ -187,10 +187,10 @@ class WPlaceBot {
             }
         }
 
-        console.log(`📷 Imagem carregada: ${width}x${height} pixels (${this.pixels.length} pixels)`);
+        console.log(`📷 Đã tải ảnh: ${width}x${height} pixel (${this.pixels.length} pixel)`);
     }
 
-    // Exemplo de imagem simples - um coração pequeno
+    // Ví dụ về ảnh đơn giản - một trái tim nhỏ
     loadHeartImage() {
         const heart = [
             '⬜', '🟥', '🟥', '⬜', '🟥', '🟥', '⬜',
@@ -211,7 +211,7 @@ class WPlaceBot {
         this.loadSimpleImage(imageData, 7, 7);
     }
 
-    // Exemplo de imagem - smile face
+    // Ví dụ về ảnh - mặt cười
     loadSmileyImage() {
         const smiley = [
             '⬜', '⬜', '🟨', '🟨', '🟨', '⬜', '⬜',
@@ -233,80 +233,80 @@ class WPlaceBot {
         this.loadSimpleImage(imageData, 7, 7);
     }
 
-    // Inicia o bot
+    // Bắt đầu bot
     async start() {
         if (this.isRunning) {
-            console.log('⚠️ Bot já está rodando!');
+            console.log('⚠️ Bot đang chạy rồi!');
             return;
         }
 
         if (this.pixels.length === 0) {
-            console.log('⚠️ Carregue uma imagem primeiro!');
+            console.log('⚠️ Vui lòng tải ảnh trước!');
             return;
         }
 
         this.isRunning = true;
         this.currentPixel = 0;
-        console.log('🚀 Bot iniciado!');
+        console.log('🚀 Bot đã bắt đầu!');
 
         while (this.isRunning && this.currentPixel < this.pixels.length) {
             const pixel = this.pixels[this.currentPixel];
             const x = this.startX + pixel.x;
             const y = this.startY + pixel.y;
 
-            // Seleciona a cor
+            // Chọn màu
             if (this.selectColor(pixel.color)) {
-                // Aguarda um pouco para a cor ser selecionada
+                // Đợi một chút để màu được chọn
                 await this.sleep(200);
                 
-                // Clica no canvas
+                // Nhấp vào canvas
                 this.clickCanvas(x, y);
                 
-                console.log(`✅ Pixel ${this.currentPixel + 1}/${this.pixels.length} colocado em (${x}, ${y})`);
+                console.log(`✅ Đã đặt pixel ${this.currentPixel + 1}/${this.pixels.length} tại (${x}, ${y})`);
             }
 
             this.currentPixel++;
             
-            // Aguarda antes do próximo pixel
+            // Đợi trước khi đặt pixel tiếp theo
             await this.sleep(this.delay);
         }
 
         this.isRunning = false;
-        console.log('✅ Bot finalizado!');
+        console.log('✅ Bot đã hoàn thành!');
     }
 
-    // Para o bot
+    // Dừng bot
     stop() {
         this.isRunning = false;
-        console.log('⏹️ Bot parado!');
+        console.log('⏹️ Bot đã dừng!');
     }
 
-    // Função de delay
+    // Hàm chờ
     sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    // Define posição inicial
+    // Đặt vị trí bắt đầu
     setStartPosition(x, y) {
         this.startX = x;
         this.startY = y;
-        console.log(`📍 Posição inicial definida: (${x}, ${y})`);
+        console.log(`📍 Đã đặt vị trí bắt đầu: (${x}, ${y})`);
     }
 
-    // Define delay entre cliques
+    // Đặt độ trễ giữa các lần nhấp
     setDelay(ms) {
         this.delay = ms;
-        console.log(`⏱️ Delay definido: ${ms}ms`);
+        console.log(`⏱️ Đã đặt độ trễ: ${ms}ms`);
     }
 
-    // Carrega imagem a partir de dados de pixels
-    loadImageFromData(pixelData, name = 'Custom Image') {
+    // Tải ảnh từ dữ liệu pixel
+    loadImageFromData(pixelData, name = 'Ảnh tùy chỉnh') {
         if (!Array.isArray(pixelData)) {
-            console.error('❌ Dados da imagem devem ser um array de objetos {x, y, color}');
+            console.error('❌ Dữ liệu ảnh phải là một mảng các đối tượng {x, y, color}');
             return false;
         }
 
-        // Validar formato dos dados
+        // Xác thực định dạng dữ liệu
         const isValidData = pixelData.every(pixel => 
             typeof pixel === 'object' && 
             typeof pixel.x === 'number' && 
@@ -315,29 +315,29 @@ class WPlaceBot {
         );
 
         if (!isValidData) {
-            console.error('❌ Formato inválido. Cada pixel deve ter {x, y, color}');
+            console.error('❌ Định dạng không hợp lệ. Mỗi pixel phải có {x, y, color}');
             return false;
         }
 
-        this.pixels = pixelData.slice(); // Cópia dos dados
-        console.log(`✅ ${name} carregada: ${pixelData.length} pixels`);
+        this.pixels = pixelData.slice(); // Sao chép dữ liệu
+        console.log(`✅ Đã tải ${name}: ${pixelData.length} pixel`);
         
-        // Calcular dimensões da imagem
+        // Tính toán kích thước của ảnh
         const maxX = Math.max(...pixelData.map(p => p.x));
         const maxY = Math.max(...pixelData.map(p => p.y));
-        console.log(`📐 Dimensões: ${maxX + 1}x${maxY + 1} pixels`);
+        console.log(`📐 Kích thước: ${maxX + 1}x${maxY + 1} pixel`);
         
-        // Contar cores únicas
+        // Đếm số màu duy nhất
         const uniqueColors = [...new Set(pixelData.map(p => p.color))];
-        console.log(`🎨 Cores únicas: ${uniqueColors.length}`);
+        console.log(`🎨 Số màu duy nhất: ${uniqueColors.length}`);
 
         return true;
     }
 
-    // Carrega imagem a partir de URL de dados (data URL)
+    // Tải ảnh từ URL dữ liệu (data URL)
     async loadImageFromUrl(imageUrl, maxWidth = 50, maxHeight = 50) {
         try {
-            console.log('🔄 Carregando imagem da URL...');
+            console.log('🔄 Đang tải ảnh từ URL...');
             
             const img = new Image();
             img.crossOrigin = 'anonymous';
@@ -346,7 +346,7 @@ class WPlaceBot {
                 img.onload = () => {
                     try {
                         const pixelData = this.processImageToPixels(img, maxWidth, maxHeight);
-                        this.loadImageFromData(pixelData, 'Image from URL');
+                        this.loadImageFromData(pixelData, 'Ảnh từ URL');
                         resolve(true);
                     } catch (error) {
                         reject(error);
@@ -354,35 +354,35 @@ class WPlaceBot {
                 };
                 
                 img.onerror = () => {
-                    reject(new Error('Erro ao carregar imagem da URL'));
+                    reject(new Error('Lỗi khi tải ảnh từ URL'));
                 };
                 
                 img.src = imageUrl;
             });
         } catch (error) {
-            console.error('❌ Erro ao carregar imagem:', error);
+            console.error('❌ Lỗi khi tải ảnh:', error);
             return false;
         }
     }
 
-    // Processa uma imagem HTML para dados de pixels
+    // Xử lý ảnh HTML thành dữ liệu pixel
     processImageToPixels(img, maxWidth, maxHeight) {
-        // Calcular dimensões mantendo proporção
+        // Tính toán kích thước giữ nguyên tỷ lệ
         const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
         const width = Math.floor(img.width * scale);
         const height = Math.floor(img.height * scale);
 
-        // Criar canvas temporário
+        // Tạo canvas tạm thời
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = width;
         canvas.height = height;
 
-        // Desenhar imagem redimensionada
+        // Vẽ ảnh đã thay đổi kích thước
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(img, 0, 0, width, height);
 
-        // Obter dados dos pixels
+        // Lấy dữ liệu pixel
         const imageData = ctx.getImageData(0, 0, width, height);
         const data = imageData.data;
 
@@ -395,7 +395,7 @@ class WPlaceBot {
                 const b = data[index + 2];
                 const a = data[index + 3];
 
-                // Ignorar pixels transparentes
+                // Bỏ qua các pixel trong suốt
                 if (a < 128) continue;
 
                 const color = '#' + [r, g, b].map(x => {
@@ -410,9 +410,9 @@ class WPlaceBot {
         return pixels;
     }
 
-    // Cria painel de controle
+    // Tạo bảng điều khiển
     createControlPanel() {
-        // Remove painel anterior se existir
+        // Xóa bảng điều khiển cũ nếu tồn tại
         const existingPanel = document.getElementById('wplace-bot-panel');
         if (existingPanel) {
             existingPanel.remove();
@@ -438,34 +438,34 @@ class WPlaceBot {
         panel.innerHTML = `
             <h3 style="margin: 0 0 10px 0; color: #4CAF50;">🎨 WPlace Bot</h3>
             <div style="margin-bottom: 10px;">
-                <label>Posição X: <input type="number" id="startX" value="100" style="width: 60px;"></label>
-                <label>Posição Y: <input type="number" id="startY" value="100" style="width: 60px;"></label>
+                <label>Vị trí X: <input type="number" id="startX" value="100" style="width: 60px;"></label>
+                <label>Vị trí Y: <input type="number" id="startY" value="100" style="width: 60px;"></label>
             </div>
             <div style="margin-bottom: 10px;">
                 <label>Delay (ms): <input type="number" id="delay" value="1000" style="width: 80px;"></label>
             </div>
             <div style="margin-bottom: 10px;">
-                <button id="loadHeart" style="margin-right: 5px; margin-bottom: 5px;">❤️ Coração</button>
-                <button id="loadSmiley" style="margin-bottom: 5px;">😊 Smiley</button>
+                <button id="loadHeart" style="margin-right: 5px; margin-bottom: 5px;">❤️ Trái tim</button>
+                <button id="loadSmiley" style="margin-bottom: 5px;">😊 Mặt cười</button>
             </div>
             <div style="margin-bottom: 10px;">
                 <input type="file" id="imageInput" accept="image/*" style="display: none;">
-                <button id="loadCustom" style="background: #FF9800; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; font-size: 11px;">📁 Carregar Imagem</button>
-                <button id="openConverter" style="background: #9C27B0; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; font-size: 11px;">🔧 Conversor</button>
-                <button id="openEditor" style="background: #E91E63; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-bottom: 5px; font-size: 11px;">🎨 Editor</button>
+                <button id="loadCustom" style="background: #FF9800; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; font-size: 11px;">📁 Tải ảnh lên</button>
+                <button id="openConverter" style="background: #9C27B0; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-right: 5px; margin-bottom: 5px; font-size: 11px;">🔧 Trình chuyển đổi</button>
+                <button id="openEditor" style="background: #E91E63; color: white; border: none; padding: 6px 10px; border-radius: 4px; margin-bottom: 5px; font-size: 11px;">🎨 Trình chỉnh sửa</button>
             </div>
             <div style="margin-bottom: 10px;">
-                <button id="startBot" style="background: #4CAF50; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 5px;">▶️ Iniciar</button>
-                <button id="stopBot" style="background: #f44336; color: white; border: none; padding: 8px 12px; border-radius: 4px;">⏹️ Parar</button>
+                <button id="startBot" style="background: #4CAF50; color: white; border: none; padding: 8px 12px; border-radius: 4px; margin-right: 5px;">▶️ Bắt đầu</button>
+                <button id="stopBot" style="background: #f44336; color: white; border: none; padding: 8px 12px; border-radius: 4px;">⏹️ Dừng</button>
             </div>
             <div id="status" style="font-size: 11px; color: #ccc;">
-                Status: Pronto
+                Trạng thái: Sẵn sàng
             </div>
         `;
 
         document.body.appendChild(panel);
 
-        // Event listeners
+        // Các trình lắng nghe sự kiện
         document.getElementById('startX').addEventListener('input', (e) => {
             this.setStartPosition(parseInt(e.target.value) || 0, this.startY);
         });
@@ -480,22 +480,22 @@ class WPlaceBot {
 
         document.getElementById('loadHeart').addEventListener('click', () => {
             this.loadHeartImage();
-            document.getElementById('status').textContent = 'Status: Coração carregado';
+            document.getElementById('status').textContent = 'Trạng thái: Đã tải trái tim';
         });
 
         document.getElementById('loadSmiley').addEventListener('click', () => {
             this.loadSmileyImage();
-            document.getElementById('status').textContent = 'Status: Smiley carregado';
+            document.getElementById('status').textContent = 'Trạng thái: Đã tải mặt cười';
         });
 
         document.getElementById('startBot').addEventListener('click', () => {
             this.start();
-            document.getElementById('status').textContent = 'Status: Executando...';
+            document.getElementById('status').textContent = 'Trạng thái: Đang chạy...';
         });
 
         document.getElementById('stopBot').addEventListener('click', () => {
             this.stop();
-            document.getElementById('status').textContent = 'Status: Parado';
+            document.getElementById('status').textContent = 'Trạng thái: Đã dừng';
         });
 
         document.getElementById('loadCustom').addEventListener('click', () => {
@@ -506,22 +506,22 @@ class WPlaceBot {
             if (e.target.files.length > 0) {
                 const file = e.target.files[0];
                 try {
-                    document.getElementById('status').textContent = 'Status: Carregando imagem...';
+                    document.getElementById('status').textContent = 'Trạng thái: Đang tải ảnh...';
                     
                     const reader = new FileReader();
                     reader.onload = async (event) => {
                         try {
                             await this.loadImageFromUrl(event.target.result, 50, 50);
-                            document.getElementById('status').textContent = 'Status: Imagem carregada!';
+                            document.getElementById('status').textContent = 'Trạng thái: Ảnh đã được tải!';
                         } catch (error) {
-                            console.error('Erro ao processar imagem:', error);
-                            document.getElementById('status').textContent = 'Status: Erro ao carregar imagem';
+                            console.error('Lỗi khi xử lý ảnh:', error);
+                            document.getElementById('status').textContent = 'Trạng thái: Lỗi khi tải ảnh';
                         }
                     };
                     reader.readAsDataURL(file);
                 } catch (error) {
-                    console.error('Erro ao ler arquivo:', error);
-                    document.getElementById('status').textContent = 'Status: Erro ao ler arquivo';
+                    console.error('Lỗi khi đọc tệp:', error);
+                    document.getElementById('status').textContent = 'Trạng thái: Lỗi khi đọc tệp';
                 }
             }
         });
@@ -538,26 +538,26 @@ class WPlaceBot {
     }
 }
 
-// Inicializa o bot
+// Khởi tạo bot
 const wplaceBot = new WPlaceBot();
 wplaceBot.init();
 
-// Comandos disponíveis no console:
+// Các lệnh có sẵn trong console:
 console.log(`
-🎨 WPlace Bot Carregado! 
+🎨 WPlace Bot đã được tải! 
 
-Comandos disponíveis:
-- wplaceBot.setStartPosition(x, y) - Define posição inicial
-- wplaceBot.setDelay(ms) - Define delay entre cliques  
-- wplaceBot.loadHeartImage() - Carrega imagem de coração
-- wplaceBot.loadSmileyImage() - Carrega imagem de smiley
-- wplaceBot.loadImageFromData(pixelData, name) - Carrega imagem de dados
-- wplaceBot.loadImageFromUrl(url, maxWidth, maxHeight) - Carrega imagem de URL
-- wplaceBot.start() - Inicia o bot
-- wplaceBot.stop() - Para o bot
+Các lệnh có sẵn:
+- wplaceBot.setStartPosition(x, y) - Đặt vị trí bắt đầu
+- wplaceBot.setDelay(ms) - Đặt độ trễ giữa các lần nhấp  
+- wplaceBot.loadHeartImage() - Tải ảnh trái tim
+- wplaceBot.loadSmileyImage() - Tải ảnh mặt cười
+- wplaceBot.loadImageFromData(pixelData, name) - Tải ảnh từ dữ liệu
+- wplaceBot.loadImageFromUrl(url, maxWidth, maxHeight) - Tải ảnh từ URL
+- wplaceBot.start() - Bắt đầu bot
+- wplaceBot.stop() - Dừng bot
 
-🔧 Conversor de Imagem:
-Use o painel de controle ou abra image-converter.html para converter suas próprias imagens!
+🔧 Trình chuyển đổi ảnh:
+Sử dụng bảng điều khiển hoặc mở image-converter.html để chuyển đổi ảnh của riêng bạn!
 
-Ou use o painel de controle que apareceu no canto superior direito!
+Hoặc sử dụng bảng điều khiển đã xuất hiện ở góc trên bên phải!
 `);

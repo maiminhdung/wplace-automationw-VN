@@ -1,153 +1,153 @@
-# 📋 Guia Completo - Como Usar o WPlace Bot
+# 📋 Hướng dẫn đầy đủ - Cách sử dụng WPlace Bot
 
-## 🚀 Passo-a-Passo Completo
+## 🚀 Hướng dẫn từng bước đầy đủ
 
-### **1. Preparação Inicial**
+### **1. Chuẩn bị ban đầu**
 
-#### **1.1 Abrir o Site**
-1. Abra seu navegador (Chrome, Firefox, Edge, etc.)
-2. Acesse: **https://wplace.live**
-3. Aguarde o site carregar completamente
-4. Certifique-se de que o canvas (área de desenho) está visível
+#### **1.1 Mở trang web**
+1. Mở trình duyệt của bạn (Chrome, Firefox, Edge, v.v.)
+2. Truy cập: **https://wplace.live**
+3. Chờ trang web tải hoàn toàn
+4. Đảm bảo rằng canvas (khu vực vẽ) đã hiển thị
 
-#### **1.2 Abrir o Console do Desenvolvedor**
-- **Windows/Linux**: Pressione `F12` ou `Ctrl + Shift + I`
-- **Mac**: Pressione `Cmd + Option + I`
-- **Alternativa**: Clique com botão direito → "Inspecionar" → aba "Console"
+#### **1.2 Mở Console của nhà phát triển**
+- **Windows/Linux**: Nhấn `F12` hoặc `Ctrl + Shift + I`
+- **Mac**: Nhấn `Cmd + Option + I`
+- **Cách khác**: Nhấp chuột phải → "Inspect" (Kiểm tra) → tab "Console"
 
-### **2. Carregar o Bot (OBRIGATÓRIO)**
+### **2. Tải Bot (BẮT BUỘC)**
 
-#### **2.1 Cole o Código Principal**
-No console, cole este código e pressione `Enter`:
+#### **2.1 Dán mã chính**
+Trong console, dán mã này và nhấn `Enter`:
 
 ```javascript
-fetch('https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+fetch('[https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
 ```
 
-**OU** cole o código completo do arquivo `wplace-bot.js` diretamente.
+**HOẶC** dán trực tiếp toàn bộ mã từ tệp `wplace-bot.js`.
 
-#### **2.2 Verificar se Carregou**
-Após executar, você deve ver:
-- ✅ Mensagem: "🎨 WPlace Bot Carregado!"
-- ✅ Painel de controle no canto superior direito
-- ✅ Lista de comandos disponíveis no console
+#### **2.2 Kiểm tra xem đã tải xong chưa**
+Sau khi thực thi, bạn sẽ thấy:
+- ✅ Tin nhắn: "🎨 WPlace Bot Carregado!" (WPlace Bot đã được tải!)
+- ✅ Bảng điều khiển ở góc trên bên phải
+- ✅ Danh sách các lệnh có sẵn trong console
 
 ---
 
-## 🎨 **3. Escolher Seu Método de Criação**
+## 🎨 **3. Chọn phương pháp tạo của bạn**
 
-### **Método A: Imagens Pré-definidas (Mais Fácil)**
+### **Phương pháp A: Ảnh có sẵn (Dễ nhất)**
 
 ```javascript
-// Carregar coração
+// Tải trái tim
 wplaceBot.loadHeartImage();
 
-// OU carregar smiley
+// HOẶC tải mặt cười
 wplaceBot.loadSmileyImage();
 
-// Definir posição (onde começar a desenhar)
+// Đặt vị trí (nơi bắt đầu vẽ)
 wplaceBot.setStartPosition(100, 100);
 
-// Definir velocidade (delay entre pixels em ms)
+// Đặt tốc độ (delay giữa các pixel tính bằng ms)
 wplaceBot.setDelay(1000);
 
-// Iniciar o desenho
+// Bắt đầu vẽ
 wplaceBot.start();
 ```
 
-### **Método B: Upload de Imagem (Painel)**
+### **Phương pháp B: Tải ảnh lên (Bảng điều khiển)**
 
-1. **Clique em "📁 Carregar Imagem"** no painel
-2. **Selecione sua imagem** (PNG, JPG, etc.)
-3. **Configure posição** nos campos X e Y
-4. **Ajuste o delay** se necessário
-5. **Clique "▶️ Iniciar"**
+1. **Nhấp vào "📁 Tải ảnh lên"** trên bảng điều khiển
+2. **Chọn ảnh của bạn** (PNG, JPG, v.v.)
+3. **Cấu hình vị trí** trong các trường X và Y
+4. **Điều chỉnh delay** nếu cần
+5. **Nhấp "▶️ Bắt đầu"**
 
-### **Método C: Conversor Avançado**
+### **Phương pháp C: Trình chuyển đổi nâng cao**
 
-1. **Clique em "🔧 Conversor"** no painel (abre nova aba)
-2. **Arraste sua imagem** ou clique para selecionar
-3. **Configure as opções**:
-   - Tamanho máximo
-   - Modo de cor (recomendado: Paleta Limitada)
-   - Posição inicial
+1. **Nhấp vào "🔧 Trình chuyển đổi"** trên bảng điều khiển (mở tab mới)
+2. **Kéo thả ảnh của bạn** hoặc nhấp để chọn
+3. **Cấu hình các tùy chọn**:
+   - Kích thước tối đa
+   - Chế độ màu (khuyến nghị: Bảng màu giới hạn)
+   - Vị trí ban đầu
    - Delay
-4. **Clique "🔄 Converter Imagem"**
-5. **Clique "📝 Gerar Script"**
-6. **Copie o código gerado**
-7. **Volte para o wplace.live**
-8. **Cole o código no console**
+4. **Nhấp "🔄 Chuyển đổi ảnh"**
+5. **Nhấp "📝 Tạo Script"**
+6. **Sao chép mã được tạo**
+7. **Quay lại wplace.live**
+8. **Dán mã vào console**
 
-### **Método D: Editor de Pixel Art**
+### **Phương pháp D: Trình chỉnh sửa Pixel Art**
 
-1. **Clique em "🎨 Editor"** no painel (abre nova aba)
-2. **Desenhe diretamente** no canvas usando as ferramentas
-3. **Configure as opções** na sidebar direita
-4. **Copie o script gerado automaticamente**
-5. **Volte para o wplace.live**
-6. **Cole o código no console**
+1. **Nhấp vào "🎨 Trình chỉnh sửa"** trên bảng điều khiển (mở tab mới)
+2. **Vẽ trực tiếp** trên canvas bằng các công cụ
+3. **Cấu hình các tùy chọn** ở thanh bên phải
+4. **Sao chép script được tạo tự động**
+5. **Quay lại wplace.live**
+6. **Dán mã vào console**
 
 ---
 
-## ⚙️ **4. Configurações Importantes**
+## ⚙️ **4. Cài đặt quan trọng**
 
-### **4.1 Posição Inicial**
+### **4.1 Vị trí ban đầu**
 ```javascript
-// Definir onde começar a desenhar (X, Y)
+// Đặt nơi bắt đầu vẽ (X, Y)
 wplaceBot.setStartPosition(100, 100);
 ```
 
-### **4.2 Velocidade/Delay**
+### **4.2 Tốc độ/Delay**
 ```javascript
-// Delay entre pixels (em milissegundos)
-wplaceBot.setDelay(1000);  // 1 segundo
-wplaceBot.setDelay(2000);  // 2 segundos (mais seguro)
-wplaceBot.setDelay(500);   // 0.5 segundos (mais rápido)
+// Delay giữa các pixel (tính bằng mili giây)
+wplaceBot.setDelay(1000);  // 1 giây
+wplaceBot.setDelay(2000);  // 2 giây (an toàn hơn)
+wplaceBot.setDelay(500);   // 0.5 giây (nhanh hơn)
 ```
 
-### **4.3 Controlar o Bot**
+### **4.3 Điều khiển Bot**
 ```javascript
-// Iniciar o desenho
+// Bắt đầu vẽ
 wplaceBot.start();
 
-// Parar o desenho
+// Dừng vẽ
 wplaceBot.stop();
 
-// Ver status
-console.log('Bot rodando:', wplaceBot.isRunning);
+// Xem trạng thái
+console.log('Bot đang chạy:', wplaceBot.isRunning);
 ```
 
 ---
 
-## 🎯 **5. Exemplo Completo Passo-a-Passo**
+## 🎯 **5. Ví dụ đầy đủ từng bước**
 
-### **Exemplo 1: Desenhar um Coração**
+### **Ví dụ 1: Vẽ một trái tim**
 
 ```javascript
-// 1. Certifique-se de que o bot está carregado
-// (execute o fetch acima primeiro)
+// 1. Đảm bảo bot đã được tải
+// (chạy fetch ở trên trước)
 
-// 2. Carregar a imagem do coração
+// 2. Tải ảnh trái tim
 wplaceBot.loadHeartImage();
 
-// 3. Definir onde desenhar (coordenadas X, Y)
+// 3. Đặt nơi vẽ (tọa độ X, Y)
 wplaceBot.setStartPosition(200, 150);
 
-// 4. Definir velocidade (2 segundos entre pixels)
+// 4. Đặt tốc độ (2 giây giữa các pixel)
 wplaceBot.setDelay(2000);
 
-// 5. Iniciar o desenho
+// 5. Bắt đầu vẽ
 wplaceBot.start();
 
-// Para parar a qualquer momento:
+// Để dừng bất cứ lúc nào:
 // wplaceBot.stop();
 ```
 
-### **Exemplo 2: Usar Imagem Personalizada**
+### **Ví dụ 2: Sử dụng ảnh tùy chỉnh**
 
 ```javascript
-// 1. Use o conversor ou editor para gerar este código
-// 2. Cole o código gerado (exemplo):
+// 1. Sử dụng trình chuyển đổi hoặc trình chỉnh sửa để tạo mã này
+// 2. Dán mã được tạo (ví dụ):
 
 const minha_imagemData = [
     { x: 0, y: 0, color: '#FF0000' },
@@ -160,103 +160,103 @@ function loadMinha_imagem() {
     wplaceBot.loadImageFromData(minha_imagemData, 'minha_imagem');
     wplaceBot.setStartPosition(100, 100);
     wplaceBot.setDelay(1000);
-    console.log('✅ Imagem carregada! Use wplaceBot.start() para desenhar');
+    console.log('✅ Đã tải ảnh! Sử dụng wplaceBot.start() để vẽ');
 }
 
-// 3. Executar a função
+// 3. Thực thi hàm
 loadMinha_imagem();
 
-// 4. Iniciar o desenho
+// 4. Bắt đầu vẽ
 wplaceBot.start();
 ```
 
 ---
 
-## ⚠️ **6. Dicas Importantes**
+## ⚠️ **6. Mẹo quan trọng**
 
-### **6.1 Antes de Começar**
-- ✅ **Verifique se há espaço** livre no canvas
-- ✅ **Teste com imagens pequenas** primeiro
-- ✅ **Use delay de pelo menos 1000ms** para evitar sobrecarga
-- ✅ **Certifique-se de que está logado** no wplace.live
+### **6.1 Trước khi bắt đầu**
+- ✅ **Kiểm tra xem có không gian trống** trên canvas không
+- ✅ **Thử với ảnh nhỏ** trước
+- ✅ **Sử dụng delay ít nhất 1000ms** để tránh quá tải
+- ✅ **Đảm bảo bạn đã đăng nhập** vào wplace.live
 
-### **6.2 Durante o Desenho**
-- ⏸️ **Pode parar a qualquer momento** com `wplaceBot.stop()`
-- 👀 **Monitore o console** para ver o progresso
-- 🔄 **Se der erro, recarregue a página** e comece novamente
+### **6.2 Trong khi vẽ**
+- ⏸️ **Có thể dừng bất cứ lúc nào** với `wplaceBot.stop()`
+- 👀 **Theo dõi console** để xem tiến trình
+- 🔄 **Nếu có lỗi, tải lại trang** và bắt đầu lại
 
-### **6.3 Resolução de Problemas**
+### **6.3 Giải quyết sự cố**
 
-#### **"Canvas não encontrado"**
+#### **"Canvas không tìm thấy"**
 ```javascript
-// Recarregue a página e tente novamente
+// Tải lại trang và thử lại
 location.reload();
 ```
 
-#### **"WPlace Bot não encontrado"**
+#### **"WPlace Bot không tìm thấy"**
 ```javascript
-// Carregue o bot novamente
-fetch('https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+// Tải lại bot
+fetch('[https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
 ```
 
-#### **Bot não está funcionando**
+#### **Bot không hoạt động**
 ```javascript
-// Verificar se o bot existe
+// Kiểm tra xem bot có tồn tại không
 console.log(typeof wplaceBot);
 
-// Reinicializar se necessário
+// Khởi tạo lại nếu cần
 wplaceBot.init();
 ```
 
 ---
 
-## 📱 **7. Comandos Úteis no Console**
+## 📱 **7. Lệnh hữu ích trong Console**
 
-### **7.1 Status e Informações**
+### **7.1 Trạng thái và thông tin**
 ```javascript
-// Ver se o bot está rodando
-console.log('Status:', wplaceBot.isRunning ? 'Rodando' : 'Parado');
+// Xem bot có đang chạy không
+console.log('Trạng thái:', wplaceBot.isRunning ? 'Đang chạy' : 'Đã dừng');
 
-// Ver posição atual
-console.log('Posição:', wplaceBot.startX, wplaceBot.startY);
+// Xem vị trí hiện tại
+console.log('Vị trí:', wplaceBot.startX, wplaceBot.startY);
 
-// Ver delay atual
+// Xem delay hiện tại
 console.log('Delay:', wplaceBot.delay + 'ms');
 
-// Ver quantos pixels restam
-console.log('Progresso:', wplaceBot.currentPixel + '/' + wplaceBot.pixels.length);
+// Xem còn bao nhiêu pixel
+console.log('Tiến trình:', wplaceBot.currentPixel + '/' + wplaceBot.pixels.length);
 ```
 
-### **7.2 Configurações Rápidas**
+### **7.2 Cài đặt nhanh**
 ```javascript
-// Configuração rápida para teste
+// Cài đặt nhanh để thử nghiệm
 wplaceBot.loadHeartImage();
 wplaceBot.setStartPosition(100, 100);
 wplaceBot.setDelay(1500);
 
-// Configuração para imagem grande (mais lenta)
+// Cài đặt cho ảnh lớn (chậm hơn)
 wplaceBot.setDelay(3000);
 
-// Configuração para imagem pequena (mais rápida)
+// Cài đặt cho ảnh nhỏ (nhanh hơn)
 wplaceBot.setDelay(800);
 ```
 
 ---
 
-## 🎉 **8. Exemplo de Uso Completo**
+## 🎉 **8. Ví dụ sử dụng đầy đủ**
 
-### **Sequência Completa do Zero:**
+### **Trình tự đầy đủ từ đầu:**
 
-1. **Abrir wplace.live**
-2. **Pressionar F12** (abrir console)
-3. **Colar e executar:**
+1. **Mở wplace.live**
+2. **Nhấn F12** (mở console)
+3. **Dán và thực thi:**
    ```javascript
-   fetch('https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+   fetch('[https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
    ```
-4. **Aguardar mensagem de confirmação**
-5. **Escolher uma opção:**
+4. **Chờ tin nhắn xác nhận**
+5. **Chọn một tùy chọn:**
    
-   **Opção A - Coração simples:**
+   **Tùy chọn A - Trái tim đơn giản:**
    ```javascript
    wplaceBot.loadHeartImage();
    wplaceBot.setStartPosition(100, 100);
@@ -264,20 +264,20 @@ wplaceBot.setDelay(800);
    wplaceBot.start();
    ```
    
-   **Opção B - Usar painel:**
-   - Clicar em "📁 Carregar Imagem"
-   - Selecionar arquivo
-   - Clicar "▶️ Iniciar"
+   **Tùy chọn B - Sử dụng bảng điều khiển:**
+   - Nhấp vào "📁 Tải ảnh lên"
+   - Chọn tệp
+   - Nhấp "▶️ Bắt đầu"
    
-   **Opção C - Conversor/Editor:**
-   - Clicar "🔧 Conversor" ou "🎨 Editor"
-   - Criar/converter imagem
-   - Copiar script gerado
-   - Colar no console
+   **Tùy chọn C - Trình chuyển đổi/Trình chỉnh sửa:**
+   - Nhấp "🔧 Trình chuyển đổi" hoặc "🎨 Trình chỉnh sửa"
+   - Tạo/chuyển đổi ảnh
+   - Sao chép script được tạo
+   - Dán vào console
 
-6. **Acompanhar o progresso no console**
-7. **Parar quando necessário:** `wplaceBot.stop()`
+6. **Theo dõi tiến trình trong console**
+7. **Dừng khi cần:** `wplaceBot.stop()`
 
 ---
 
-**🎯 Pronto! Agora você pode desenhar qualquer coisa no wplace.live automaticamente!**
+**🎯 Xong! Bây giờ bạn có thể vẽ bất cứ thứ gì trên wplace.live một cách tự động!**
