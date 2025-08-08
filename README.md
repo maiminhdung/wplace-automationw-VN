@@ -12,7 +12,8 @@ Bot để tự động hóa việc tạo các bức vẽ trên trang web wplace.
 ### **Bước 2: Tải Bot** ⚠️ **BẮT BUỘC**
 **Dán mã này vào console và nhấn Enter:**
 ```javascript
-fetch('[https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=](https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=)>r.text()).then(eval)
+fetch('https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+
 ```
 
 **Chờ đến khi thấy:**
