@@ -12,7 +12,7 @@ Bot para automatizar a criação de desenhos no site wplace.live.
 ### **Passo 2: Carregar o Bot** ⚠️ **OBRIGATÓRIO**
 **Cole este código no console e pressione Enter:**
 ```javascript
-fetch('https://raw.githubusercontent.com/gcampos04/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
+fetch('https://raw.githubusercontent.com/maiminhdung/wplace-automation/main/wplace-bot.js').then(r=>r.text()).then(eval)
 ```
 
 **Aguarde ver:**
